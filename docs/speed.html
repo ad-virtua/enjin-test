@@ -1,115 +1,183 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>v7 通信速度測定 | 株式会社縁人</title>
-<link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="TemplateData/style.css">
-<style>
-  /* ナビを崩さず本文だけ調整 */
-  #unity-wrap{
-    width:100%;
-    margin:40px auto;
-    text-align:center;
-  }
-  #unity-container{
-    display:inline-block;
-    max-width:640px;
-    width:100%;
-  }
-  #unity-canvas{
-    display:block;
-    width:100%!important;
-    height:auto!important;
-  }
-</style>
-</head>
-<body>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v8 通信速度測定 | 株式会社縁人</title>
+    <meta name="description" content="株式会社縁人通信速度測定ゲーム">
 
-<!-- ==== ナビは元のまま ==== -->
-<nav class="navbar navbar-custom navbar-fixed-top"><div class="container">…</div></nav>
+    <!-- CSS 群 -->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="TemplateData/style.css">
 
-<div class="container" style="margin-top:120px"><!-- ナビ高さ分下げる -->
+    <!-- ページ固有 -->
+    <style>
+      /* Unity ブロック */
+      #unity-container{
+        max-width:640px;
+        margin:40px auto;          /* 上下余白 + 中央寄せ */
+      }
+      #unity-canvas{
+        display:block;
+        width:100% !important;
+        height:auto !important;
+      }
+    </style>
+  </head>
 
-  <h2>光回線通信速度測定<span>EnjinGame</span></h2>
-  <p>EnjinGame 光回線の通信速度が計測可能です</p>
+  <body>
 
-  <!-- ===== Unity ブロック (グリッド外) ===== -->
-  <div id="unity-wrap">
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
+  <!-- ★★★★★ ナビゲーション（元ファイルそのまま） ★★★★★ -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          <span class="menu_txt">MENU</span>
+        </button>
+        <h1 id="head_logo">
+          <a class="navbar-brand logo_font" href="index.html">
+            <img src="assets/images/logo.png" alt="株式会社縁人">
+          </a>
+        </h1>
+      </div>
+      <div class="collapse navbar-collapse" id="custom-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="index.html#service">サービス一覧</a></li>
+          <li><a href="company.html">会社概要</a></li>
+          <li><a href="recruit.html">採用情報</a></li>
+          <li><a href="index.html#contact">お問合せ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ★★★★★ /ナビ ★★★★★ -->
 
-      <div id="unity-loading-bar" style="display:none">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+  <!-- ===== ページ本文 ===== -->
+  <div class="container" style="margin-top:120px"><!-- ナビ高さぶん下げ -->
+
+    <!-- 見出し -->
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="js_typing">光回線通信速度測定<span>EnjinGame</span></h2>
+      </div>
+    </div>
+
+    <!-- 説明文 -->
+    <div class="row">
+      <div class="col-xs-12">
+        <p>EnjinGame 光回線の通信速度が計測可能です</p>
+      </div>
+    </div>
+
+    <!-- Unity ブロック -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="unity-container" class="unity-desktop">
+          <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
+
+          <div id="unity-loading-bar" style="display:none">
+            <div id="unity-logo"></div>
+            <div id="unity-progress-bar-empty">
+              <div id="unity-progress-bar-full"></div>
+            </div>
+          </div>
+
+          <div id="unity-warning"></div>
+          <div id="unity-footer"></div>
         </div>
       </div>
-
-      <div id="unity-warning"></div>
-      <div id="unity-footer"></div>
     </div>
-  </div>
-  <!-- ====================================== -->
 
-  <p>ここにゲームが入るとありがたいです。</p>
+    <!-- Unity 後の文 -->
+    <div class="row">
+      <div class="col-xs-12">
+        <p>ここにゲームが入るとありがたいです。</p>
+      </div>
+    </div>
 
-  <dl>
-    <dt>【EnjinGame注意事項】</dt>
-    <dd>
-      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-    </dd>
-    <dt>EnjinGameの不具合は</dt>
-    <dd><p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p></dd>
-  </dl>
+    <!-- 注意事項 -->
+    <div class="row">
+      <div class="col-xs-12">
+        <dl>
+          <dt>【EnjinGame注意事項】</dt>
+          <dd>
+            <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+            <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+            <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+            <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+          </dd>
+          <dt>EnjinGameの不具合は</dt>
+          <dd><p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p></dd>
+        </dl>
+      </div>
+    </div>
 
-</div><!-- /.container -->
+  </div><!-- /.container -->
 
-<footer class="footer"><div class="container">…</div></footer>
+  <!-- ===== フッター ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p><a href="privacy.html">&gt; プライバシーポリシー</a> | 電気通信事業者届出番号 A-23-11925 | お問合せ：03-6915-6506</p>
+        </div>
+        <div class="col-sm-6">
+          <p class="text-right">© 2023 enjin.inc.</p>
+        </div>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+  </footer>
+  <!-- ==================== -->
 
-<!-- ==== JS（Bootstrap・Unity ローダーは元のまま） ==== -->
-<script src="assets/lib/jquery/dist/jquery.js"></script>
-<script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- ===== JS ===== -->
+  <script src="assets/lib/jquery/dist/jquery.js"></script>
+  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<script>
-  /* 表示サイズ調整 */
-  const c=document.getElementById("unity-canvas");
-  function fit(){c.style.width=(window.innerWidth>=768?540:320)+"px";}
-  fit();window.addEventListener("resize",fit);
+  <!-- Unity ローダー -->
+  <script>
+    /* Canvas サイズ調整 */
+    const uCanvas=document.getElementById('unity-canvas');
+    function fit(){uCanvas.style.width=(window.innerWidth>=768?540:320)+'px';uCanvas.style.height=uCanvas.style.width;}
+    fit();window.addEventListener('resize',fit);
 
-  /* バナー */
-  function unityShowBanner(m,t){
-    const w=document.getElementById("unity-warning");
-    const d=document.createElement("div");d.innerHTML=m;
-    d.style.cssText="padding:10px;background:"+(t==="error"?"red":"yellow");
-    w.appendChild(d);if(t!=="error")setTimeout(()=>w.removeChild(d),5000);
-  }
+    /* バナー */
+    function unityShowBanner(msg,type){
+      const warn=document.getElementById('unity-warning');
+      const d=document.createElement('div');
+      d.innerHTML=msg;d.style=`padding:10px;background:${type==='error'?'red':'yellow'}`;
+      warn.appendChild(d);if(type!=='error')setTimeout(()=>warn.removeChild(d),5e3);
+    }
 
-  const buildUrl="Build";
-  const config={
-    dataUrl:buildUrl+"/WebGL.data",
-    frameworkUrl:buildUrl+"/WebGL.framework.js",
-    codeUrl:buildUrl+"/WebGL.wasm",
-    streamingAssetsUrl:"StreamingAssets",
-    companyName:"DefaultCompany",
-    productName:"WiFiPunchGame",
-    productVersion:"0.1.0",
-    showBanner:unityShowBanner
-  };
+    /* ビルド設定 */
+    const build='Build';
+    const config={
+      dataUrl: build+'/WebGL.data',
+      frameworkUrl: build+'/WebGL.framework.js',
+      codeUrl: build+'/WebGL.wasm',
+      streamingAssetsUrl: 'StreamingAssets',
+      companyName: 'DefaultCompany',
+      productName: 'WiFiPunchGame',
+      productVersion: '0.1.0',
+      showBanner: unityShowBanner
+    };
 
-  document.getElementById("unity-loading-bar").style.display="block";
-  const s=document.createElement("script");s.src=buildUrl+"/WebGL.loader.js";
-  s.onload=()=>{createUnityInstance(c,config,p=>{
-      document.getElementById("unity-progress-bar-full").style.width=(p*100)+"%";
-    }).then(()=>{document.getElementById("unity-loading-bar").style.display="none";})
-      .catch(alert);};
-  document.body.appendChild(s);
-</script>
-</body>
+    document.getElementById('unity-loading-bar').style.display='block';
+    const s=document.createElement('script');
+    s.src=build+'/WebGL.loader.js';
+    s.onload=()=>{
+      createUnityInstance(uCanvas,config,p=>{
+        document.getElementById('unity-progress-bar-full').style.width=(p*100)+'%';
+      }).then(()=>{document.getElementById('unity-loading-bar').style.display='none';})
+        .catch(alert);
+    };
+    document.body.appendChild(s);
+  </script>
+
+  </body>
 </html>
