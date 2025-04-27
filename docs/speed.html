@@ -1,261 +1,339 @@
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>v4 通信速度測定 | 株式会社縁人</title>
-  <meta name="description" content="株式会社縁人通信速度測定ゲーム">
-  <link rel="apple-touch-icon" type="image/png" href="assets/images/favicons/apple-touch-icon-180x180.png">
-  <link rel="icon" type="image/png" href="assets/images/favicons/icon-192x192.png">
-  <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
-  <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
-  <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="TemplateData/style.css">
-  <style>
-    /* ===== Unity ブロック用 ===== */
-    #unity-container{
-      margin:40px auto;          /* 上下余白 */
-      max-width:640px;           /* PC 最大幅 */
-      clear:both;                /* ここでフロート解除 */
-    }
-    #unity-canvas{
-      display:block;
-      width:100% !important;
-      height:auto !important;
-    }
-  </style>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v5 通信速度測定 | 株式会社縁人</title>
+    <meta name="description" content="株式会社縁人通信速度測定ゲーム">
 
-<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
-  <div class="loading-wrap"></div>
+    <!-- ===== Favicons ===== -->
+    <link rel="apple-touch-icon" type="image/png" href="assets/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/icon-192x192.png">
 
-  <main>
-    <!-- ============ ナビゲーション ============ -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            <span class="menu_txt">MENU</span>
-          </button>
-          <h1 id="head_logo">
-            <a class="navbar-brand logo_font" href="index.html">
-              <img src="assets/images/logo.png" alt="株式会社縁人" />
-            </a>
-          </h1>
-        </div>
-        <div class="collapse navbar-collapse" id="custom-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">トップ</a></li>
-            <li><a href="index.html#service">サービス一覧</a></li>
-            <li><a href="company.html">会社概要</a></li>
-            <li><a href="recruit.html">採用情報</a></li>
-            <li><a href="index.html#contact">お問合せ</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- ======================================== -->
+    <!-- ===== CSS ===== -->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="TemplateData/style.css">
 
-    <div class="main sub_page">
-      <section id="policy">
-        <div class="container"><!-- ★★★ 以降は常に「row → col」構成 ★★★ -->
-
-          <!-- タイトル行 -->
-          <div class="row">
-            <div class="col-xs-12">
-              <h2 class="js_typing">光回線通信速度測定<span>EnjinGame</span></h2>
-            </div>
-          </div>
-
-          <!-- 説明文行 -->
-          <div class="row">
-            <div class="col-xs-12">
-              <p>EnjinGame 光回線の通信速度が計測可能です</p>
-            </div>
-          </div>
-
-          <!-- Unity 行（他と混ざらない） -->
-          <div class="row">
-            <div class="col-xs-12 text-center">
-              <div id="unity-container" class="unity-desktop">
-                <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
-
-                <div id="unity-loading-bar" style="display:none">
-                  <div id="unity-logo"></div>
-                  <div id="unity-progress-bar-empty">
-                    <div id="unity-progress-bar-full"></div>
-                  </div>
-                </div>
-
-                <div id="unity-warning"></div>
-                <div id="unity-footer"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Unity の後に続く説明文 -->
-          <div class="row">
-            <div class="col-xs-12">
-              <p class="mt-4">ここにゲームが入るとありがたいです。</p>
-            </div>
-          </div>
-
-          <!-- 注意事項行 -->
-          <div class="row">
-            <div class="col-xs-12">
-              <dl>
-                <dt>【EnjinGame注意事項】</dt>
-                <dd>
-                  <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                  <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                  <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                  <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                </dd>
-                <dt>EnjinGameの不具合は</dt>
-                <dd>
-                  <p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p>
-                </dd>
-              </dl>
-            </div>
-          </div>
-
-        </div><!-- /.container -->
-      </section>
-
-      <!-- ================= フッター ================= -->
-      <footer class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="txt_caution">
-                <p>
-                  <a href="privacy.html">&gt;&nbsp;プライバシーポリシー</a>
-                  <span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                  電気通信事業者届出番号 A-23-11925
-                  <span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                  <span class="only_sp"><br></span>
-                  お問合せ：03-6915-6506
-                </p>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <p class="copyright font-alt">Copyright&nbsp;2023&nbsp;&copy;&nbsp;enjin.inc.&nbsp;all rights reserved.</p>
-            </div>
-          </div>
-        </div>
-        <canvas id="canvas"></canvas>
-      </footer>
-      <!-- ========================================== -->
-    </div>
-  </main>
-
-  <!-- ===================== 各種ライブラリ ===================== -->
-  <script src="assets/lib/jquery/dist/jquery.js"></script>
-  <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="assets/lib/wow/dist/wow.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/shuffle-text@0.3.0/build/shuffle-text.min.js"></script>
-
-  <!-- ローディングアニメ -->
-  <script>
-    $(window).on('load', function(){
-      $(".loading-wrap").addClass('loading-anime');
-    });
-  </script>
-
-  <!-- タイピングアニメ -->
-  <script>
-    (function($){
-      var arr=[];
-      function TypingInit(){ $('.js_typing').each(function(i){ arr[i]=new ShuffleText(this); }); }
-      function TypingAnime(){
-        $(".js_typing").each(function(i){
-          var elemPos=$(this).offset().top-30,scroll=$(window).scrollTop(),wh=$(window).height();
-          if(scroll>=elemPos-wh){ if(!$(this).hasClass("endAnime")){ arr[i].start(); arr[i].duration=2500; $(this).addClass("endAnime"); }}
-          else{ $(this).removeClass("endAnime"); }
-        });
+    <style>
+      /* -------  clearfix helper  ------- */
+      .clearfix::after{
+        content:"";
+        display:block;
+        clear:both;
       }
-      $(window).scroll(TypingAnime);
-      $(window).on('load',function(){ TypingInit(); TypingAnime(); });
-    })(jQuery);
-  </script>
 
-  <!-- ナビゲーション開閉 -->
-  <script>
-    $('.navbar-nav li a').click(function(){
-      $('.navbar-collapse').collapse('hide');
-      $('.navbar-fixed-top .navbar-collapse').css('display','none');
-    });
-    $('.navbar-toggle').click(function(){
-      $('.navbar-toggle').collapse('show');
-      $('.navbar-fixed-top .navbar-collapse').css('display','block');
-    });
-  </script>
+      /* -------  Unity block  ------- */
+      #unity-container{
+        clear:both;           /* フロート解除で重なり防止 */
+        margin:40px auto;     /* 上下余白 + 中央寄せ */
+        max-width:640px;      /* PC での最大幅 */
+      }
+      #unity-canvas{
+        display:block;
+        width:100% !important;  /* 親幅いっぱいに拡大・縮小 */
+        height:auto !important;  /* アスペクト比維持 */
+      }
+    </style>
+  </head>
 
-  <!-- 星空バックグラウンド -->
-  <script>
-    "use strict";
-    var canvasBg=document.getElementById('canvas'),ctx=canvasBg.getContext('2d'),
-        w=canvasBg.width=window.innerWidth,h=canvasBg.height=window.innerHeight,
-        hue=217,stars=[],count=0,maxStars=1400;
-    var canvas2=document.createElement('canvas'),ctx2=canvas2.getContext('2d');
-    canvas2.width=canvas2.height=100;
-    var half=canvas2.width/2,grad=ctx2.createRadialGradient(half,half,0,half,half,half);
-    grad.addColorStop(0.025,'#fff');grad.addColorStop(0.1,'hsl('+hue+',61%,33%)');
-    grad.addColorStop(0.25,'hsl('+hue+',64%,6%)');grad.addColorStop(1,'transparent');
-    ctx2.fillStyle=grad;ctx2.beginPath();ctx2.arc(half,half,half,0,Math.PI*2);ctx2.fill();
-    function random(min,max){ if(arguments.length<2){max=min;min=0;} if(min>max){var h=max;max=min;min=h;} return Math.floor(Math.random()*(max-min+1))+min; }
-    var Star=function(){ this.orbitRadius=random(w/2-50); this.radius=random(100,this.orbitRadius)/10;
-      this.orbitX=w/2; this.orbitY=h/2; this.timePassed=random(0,maxStars); this.speed=random(this.orbitRadius)/100000; this.alpha=random(2,10)/10; stars[++count]=this; };
-    Star.prototype.draw=function(){ var x=Math.sin(this.timePassed+1)*this.orbitRadius+this.orbitX,
-      y=Math.cos(this.timePassed)*this.orbitRadius/2+this.orbitY,twinkle=random(10);
-      if(twinkle===1&&this.alpha>0){this.alpha-=0.05;}else if(twinkle===2&&this.alpha<1){this.alpha+=0.05;}
-      ctx.globalAlpha=this.alpha; ctx.drawImage(canvas2,x-this.radius/2,y-this.radius/2,this.radius,this.radius); this.timePassed+=this.speed; };
-    for(var i=0;i<maxStars;i++){new Star();}
-    (function animate(){ ctx.globalCompositeOperation='source-over'; ctx.globalAlpha=0.8; ctx.fillStyle='hsla('+hue+',64%,6%,1)'; ctx.fillRect(0,0,w,h);
-      ctx.globalCompositeOperation='lighter'; for(var i=1,l=stars.length;i<l;i++){stars[i].draw();} window.requestAnimationFrame(animate); })();
-  </script>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <div class="loading-wrap"></div>
 
-  <!-- =============== Unity WebGL ローダー =============== -->
-  <script>
-    const unityCanvas=document.querySelector("#unity-canvas");
-    function updateUnityCanvasSize(){ const css=window.innerWidth>=768?540:320; unityCanvas.style.width=css+"px"; unityCanvas.style.height=css+"px"; }
-    updateUnityCanvasSize(); window.addEventListener("resize",updateUnityCanvasSize);
+    <main>
+      <!-- ====================== NAVBAR ====================== -->
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+              <span class="menu_txt">MENU</span>
+            </button>
+            <h1 id="head_logo">
+              <a class="navbar-brand logo_font" href="index.html">
+                <img src="assets/images/logo.png" alt="株式会社縁人">
+              </a>
+            </h1>
+          </div>
 
-    function unityShowBanner(msg,type){
-      const warn=document.querySelector("#unity-warning"),div=document.createElement("div");
-      div.innerHTML=msg; div.style.cssText="padding:10px;background:"+(type==="error"?"red":"yellow"); warn.appendChild(div);
-      if(type!=="error") setTimeout(()=>warn.removeChild(div),5000);
-    }
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="index.html">トップ</a></li>
+              <li><a href="index.html#service">サービス一覧</a></li>
+              <li><a href="company.html">会社概要</a></li>
+              <li><a href="recruit.html">採用情報</a></li>
+              <li><a href="index.html#contact">お問合せ</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- ==================================================== -->
 
-    const buildUrl="Build";
-    const unityConfig={
-      dataUrl:buildUrl+"/WebGL.data",
-      frameworkUrl:buildUrl+"/WebGL.framework.js",
-      codeUrl:buildUrl+"/WebGL.wasm",
-      streamingAssetsUrl:"StreamingAssets",
-      companyName:"DefaultCompany",
-      productName:"WiFiPunchGame",
-      productVersion:"0.1.0",
-      showBanner:unityShowBanner
-    };
+      <div class="main sub_page">
+        <section id="policy">
+          <div class="container">
 
-    document.querySelector("#unity-loading-bar").style.display="block";
-    const loaderScript=document.createElement("script");
-    loaderScript.src=buildUrl+"/WebGL.loader.js";
-    loaderScript.onload=()=>{
-      createUnityInstance(unityCanvas,unityConfig,(p)=>{ document.querySelector("#unity-progress-bar-full").style.width=(p*100)+"%"; })
-        .then(()=>{ document.querySelector("#unity-loading-bar").style.display="none"; })
-        .catch(alert);
-    };
-    document.body.appendChild(loaderScript);
-  </script><!-- ============ /Unity ローダー ============ -->
-</body>
+            <!-- -------- タイトル行 -------- -->
+            <div class="row clearfix">
+              <div class="col-xs-12">
+                <h2 class="js_typing">光回線通信速度測定<span>EnjinGame</span></h2>
+              </div>
+            </div>
+
+            <!-- -------- 説明文 -------- -->
+            <div class="row clearfix">
+              <div class="col-xs-12">
+                <p>EnjinGame 光回線の通信速度が計測可能です</p>
+              </div>
+            </div>
+
+            <!-- -------- Unity ブロック行 -------- -->
+            <div class="row clearfix">
+              <div class="col-xs-12 text-center">
+                <div id="unity-container" class="unity-desktop">
+                  <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
+
+                  <div id="unity-loading-bar" style="display:none">
+                    <div id="unity-logo"></div>
+                    <div id="unity-progress-bar-empty">
+                      <div id="unity-progress-bar-full"></div>
+                    </div>
+                  </div>
+
+                  <div id="unity-warning"></div>
+                  <div id="unity-footer"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- -------- Unity 後の文章 -------- -->
+            <div class="row clearfix">
+              <div class="col-xs-12">
+                <p class="mt-4">ここにゲームが入るとありがたいです。</p>
+              </div>
+            </div>
+
+            <!-- -------- 注意事項 -------- -->
+            <div class="row clearfix">
+              <div class="col-xs-12">
+                <dl>
+                  <dt>【EnjinGame注意事項】</dt>
+                  <dd>
+                    <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                    <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                    <p>通信速度はあくまで目安です. 50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                    <p>通信速度はあくまで目安です. 50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                  </dd>
+                  <dt>EnjinGameの不具合は</dt>
+                  <dd>
+                    <p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+
+          </div><!-- /.container -->
+        </section>
+
+        <!-- ====================== FOOTER ====================== -->
+        <footer class="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="txt_caution">
+                  <p>
+                    <a href="privacy.html">&gt;&nbsp;プライバシーポリシー</a>
+                    <span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    電気通信事業者届出番号 A-23-11925
+                    <span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span class="only_sp"><br></span>
+                    お問合せ：03-6915-6506
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <p class="copyright font-alt">Copyright&nbsp;2023&nbsp;&copy;&nbsp;enjin.inc.&nbsp;all rights reserved.</p>
+              </div>
+            </div>
+          </div>
+          <canvas id="canvas"></canvas>
+        </footer>
+        <!-- ==================================================== -->
+      </div>
+    </main>
+
+    <!-- ====================== JS ライブラリ ====================== -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shuffle-text@0.3.0/build/shuffle-text.min.js"></script>
+
+    <!-- ローディングアニメ -->
+    <script>
+      $(window).on('load', function(){
+        $(".loading-wrap").addClass('loading-anime');
+      });
+    </script>
+
+    <!-- タイピングアニメ -->
+    <script>
+      (function($){
+        var arr=[];
+        function TypingInit(){
+          $('.js_typing').each(function(i){
+            arr[i]=new ShuffleText(this);
+          });
+        }
+        function TypingAnime(){
+          $(".js_typing").each(function(i){
+            var elemPos=$(this).offset().top-30;
+            var scroll=$(window).scrollTop();
+            var wh=$(window).height();
+            if(scroll>=elemPos-wh){
+              if(!$(this).hasClass("endAnime")){
+                arr[i].start();
+                arr[i].duration=2500;
+                $(this).addClass("endAnime");
+              }
+            }else{
+              $(this).removeClass("endAnime");
+            }
+          });
+        }
+        $(window).scroll(TypingAnime);
+        $(window).on('load',function(){TypingInit();TypingAnime();});
+      })(jQuery);
+    </script>
+
+    <!-- ナビ開閉 -->
+    <script>
+      $('.navbar-nav li a').click(function(){
+        $('.navbar-collapse').collapse('hide');
+        $('.navbar-fixed-top .navbar-collapse').css('display','none');
+      });
+      $('.navbar-toggle').click(function(){
+        $('.navbar-toggle').collapse('show');
+        $('.navbar-fixed-top .navbar-collapse').css('display','block');
+      });
+    </script>
+
+    <!-- 星空背景 -->
+    <script>
+      "use strict";
+      var canvasBg=document.getElementById('canvas'),
+          ctx=canvasBg.getContext('2d'),
+          w=canvasBg.width=window.innerWidth,
+          h=canvasBg.height=window.innerHeight,
+          hue=217,stars=[],count=0,maxStars=1400;
+
+      var canvas2=document.createElement('canvas'),
+          ctx2=canvas2.getContext('2d');
+      canvas2.width=canvas2.height=100;
+      var half=canvas2.width/2,
+          grad=ctx2.createRadialGradient(half,half,0,half,half,half);
+      grad.addColorStop(0.025,'#fff');
+      grad.addColorStop(0.1,'hsl('+hue+',61%,33%)');
+      grad.addColorStop(0.25,'hsl('+hue+',64%,6%)');
+      grad.addColorStop(1,'transparent');
+      ctx2.fillStyle=grad;
+      ctx2.beginPath();
+      ctx2.arc(half,half,half,0,Math.PI*2);
+      ctx2.fill();
+
+      function random(min,max){
+        if(arguments.length<2){max=min;min=0;}
+        if(min>max){var hold=max;max=min;min=hold;}
+        return Math.floor(Math.random()*(max-min+1))+min;
+      }
+
+      var Star=function(){
+        this.orbitRadius=random(w/2-50);
+        this.radius=random(100,this.orbitRadius)/10;
+        this.orbitX=w/2;
+        this.orbitY=h/2;
+        this.timePassed=random(0,maxStars);
+        this.speed=random(this.orbitRadius)/100000;
+        this.alpha=random(2,10)/10;
+        stars[++count]=this;
+      };
+
+      Star.prototype.draw=function(){
+        var x=Math.sin(this.timePassed+1)*this.orbitRadius+this.orbitX,
+            y=Math.cos(this.timePassed)*this.orbitRadius/2+this.orbitY,
+            twinkle=random(10);
+        if(twinkle===1&&this.alpha>0){this.alpha-=0.05;}
+        else if(twinkle===2&&this.alpha<1){this.alpha+=0.05;}
+        ctx.globalAlpha=this.alpha;
+        ctx.drawImage(canvas2,x-this.radius/2,y-this.radius/2,this.radius,this.radius);
+        this.timePassed+=this.speed;
+      };
+
+      for(var i=0;i<maxStars;i++){new Star();}
+
+      (function animate(){
+        ctx.globalCompositeOperation='source-over';
+        ctx.globalAlpha=0.8;
+        ctx.fillStyle='hsla('+hue+',64%,6%,1)';
+        ctx.fillRect(0,0,w,h);
+        ctx.globalCompositeOperation='lighter';
+        for(var i=1,l=stars.length;i<l;i++){stars[i].draw();}
+        window.requestAnimationFrame(animate);
+      })();
+    </script>
+
+    <!-- Unity WebGL ローダー -->
+    <script>
+      const unityCanvas=document.getElementById("unity-canvas");
+
+      function updateUnityCanvasSize(){
+        const cssSize=window.innerWidth>=768?540:320;
+        unityCanvas.style.width=cssSize+"px";
+        unityCanvas.style.height=cssSize+"px";
+      }
+      updateUnityCanvasSize();
+      window.addEventListener("resize",updateUnityCanvasSize);
+
+      function unityShowBanner(msg,type){
+        const warn=document.getElementById("unity-warning");
+        const div=document.createElement("div");
+        div.innerHTML=msg;
+        div.style.cssText="padding:10px;background:"+(type==="error"?"red":"yellow");
+        warn.appendChild(div);
+        if(type!=="error") setTimeout(()=>warn.removeChild(div),5000);
+      }
+
+      const buildUrl="Build";
+      const unityConfig={
+        dataUrl: buildUrl+"/WebGL.data",
+        frameworkUrl: buildUrl+"/WebGL.framework.js",
+        codeUrl: buildUrl+"/WebGL.wasm",
+        streamingAssetsUrl:"StreamingAssets",
+        companyName:"DefaultCompany",
+        productName:"WiFiPunchGame",
+        productVersion:"0.1.0",
+        showBanner: unityShowBanner
+      };
+
+      document.getElementById("unity-loading-bar").style.display="block";
+
+      const loaderScript=document.createElement("script");
+      loaderScript.src=buildUrl+"/WebGL.loader.js";
+      loaderScript.onload=()=>{
+        createUnityInstance(unityCanvas,unityConfig,(progress)=>{
+          document.getElementById("unity-progress-bar-full").style.width=(progress*100)+"%";
+        }).then(()=>{
+          document.getElementById("unity-loading-bar").style.display="none";
+        }).catch(alert);
+      };
+      document.body.appendChild(loaderScript);
+    </script>
+  </body>
 </html>
