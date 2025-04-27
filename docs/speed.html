@@ -8,7 +8,7 @@
     Document Title
     =============================================
     -->
-    <title>通信速度測定 | 株式会社縁人 v2</title>
+    <title>v3 通信速度測定 | 株式会社縁人</title>
     <meta name="description" content="株式会社縁人通信速度測定ゲーム">
     <!--  
     Favicons
@@ -31,14 +31,14 @@
 
     <style>
       /* ===== Unity ブロック用 ===== */
-      #unity-container {
-        margin: 40px auto;          /* 上下に余白を確保してテキストを避ける */
-        max-width: 640px;           /* PC での最大幅 */
+      #unity-container{
+        margin:40px auto;          /* 上下余白 */
+        max-width:640px;           /* PC 最大幅 */
       }
-      #unity-canvas {
-        display: block;
-        width: 100% !important;     /* 親幅いっぱいに表示 */
-        height: auto !important;    /* アスペクト比維持 */
+      #unity-canvas{
+        display:block;
+        width:100% !important;     /* 親幅いっぱい */
+        height:auto !important;    /* アスペクト比維持 */
       }
     </style>
   </head>
@@ -47,11 +47,20 @@
     <div class="loading-wrap"></div>
 
     <main>
+      <!-- ========================== ナビゲーション ========================== -->
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span><span class="menu_txt">MENU</span></button>
-            <h1 id="head_logo"><a class="navbar-brand logo_font" href="index.html"><img src="assets/images/logo.png" alt="株式会社縁人" /></a></h1>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+              <span class="menu_txt">MENU</span>
+            </button>
+            <h1 id="head_logo">
+              <a class="navbar-brand logo_font" href="index.html">
+                <img src="assets/images/logo.png" alt="株式会社縁人" />
+              </a>
+            </h1>
           </div>
 
           <div class="collapse navbar-collapse" id="custom-collapse">
@@ -65,68 +74,93 @@
           </div>
         </div>
       </nav>
+      <!-- =================================================================== -->
 
       <div class="main sub_page">
         <section id="policy">
           <div class="row">
             <div class="col-sm-12">
+              <!-- サブページタイトル -->
               <div class="sub_page_title">
                 <div class="container">
                   <h2 class="js_typing">光回線通信速度測定<span>EnjinGame</span></h2>
                 </div>
               </div>
 
+              <!-- ======================= 本文ブロック ======================= -->
               <div class="container">
-                <div class="company_box col-sm-12">
-                  <p>EnjinGame 光回線の通信速度が計測可能です</p>
 
-                  <!-- ==== Unity 専用行（重なり防止） ==== -->
-                  <div class="row">
-                    <div class="col-xs-12 text-center">
-                      <div id="unity-container" class="unity-desktop">
-                        <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
+                <!-- 説明文 行 -->
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p>EnjinGame 光回線の通信速度が計測可能です</p>
+                  </div>
+                </div>
 
-                        <div id="unity-loading-bar" style="display:none">
-                          <div id="unity-logo"></div>
-                          <div id="unity-progress-bar-empty">
-                            <div id="unity-progress-bar-full"></div>
-                          </div>
+                <!-- Unity 行（単独） -->
+                <div class="row">
+                  <div class="col-xs-12 text-center">
+                    <div id="unity-container" class="unity-desktop">
+                      <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
+
+                      <div id="unity-loading-bar" style="display:none">
+                        <div id="unity-logo"></div>
+                        <div id="unity-progress-bar-empty">
+                          <div id="unity-progress-bar-full"></div>
                         </div>
-
-                        <div id="unity-warning"></div>
-                        <div id="unity-footer"></div>
                       </div>
+
+                      <div id="unity-warning"></div>
+                      <div id="unity-footer"></div>
                     </div>
                   </div>
-                  <!-- ==== /Unity 専用行 ==== -->
-
-                  <p class="mt-4">ここにゲームが入るとありがたいです。</p>
-
-                  <dl>
-                    <dt>【EnjinGame注意事項】</dt>
-                    <dd>
-                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
-                    </dd>
-                    <dt>EnjinGameの不具合は</dt>
-                    <dd>
-                      <p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p>
-                    </dd>
-                  </dl>
                 </div>
-              </div>
+
+                <!-- Unity 以降の説明文 行 -->
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p class="mt-4">ここにゲームが入るとありがたいです。</p>
+                  </div>
+                </div>
+
+                <!-- 注意事項 行 -->
+                <div class="row">
+                  <div class="col-xs-12">
+                    <dl>
+                      <dt>【EnjinGame注意事項】</dt>
+                      <dd>
+                        <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                        <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                        <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                        <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                      </dd>
+                      <dt>EnjinGameの不具合は</dt>
+                      <dd>
+                        <p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+
+              </div><!-- /.container -->
             </div>
           </div>
         </section>
 
+        <!-- ============================ フッター ============================ -->
         <footer class="footer">
           <div class="container">
             <div class="row">
               <div class="col-sm-6">
                 <div class="txt_caution">
-                  <p><a href="privacy.html">&gt;&nbsp;プライバシーポリシー</a><span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>電気通信事業者届出番号 A-23-11925<span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="only_sp"><br></span>お問合せ：03-6915-6506</p>
+                  <p>
+                    <a href="privacy.html">&gt;&nbsp;プライバシーポリシー</a>
+                    <span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    電気通信事業者届出番号 A-23-11925
+                    <span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <span class="only_sp"><br></span>
+                    お問合せ：03-6915-6506
+                  </p>
                 </div>
               </div>
               <div class="col-sm-6">
@@ -136,25 +170,25 @@
           </div>
           <canvas id="canvas"></canvas>
         </footer>
+        <!-- ================================================================= -->
       </div>
     </main>
 
-    <!--  
-    JavaScripts
-    =============================================
-    -->
+    <!-- =========================== JavaScripts =========================== -->
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/lib/wow/dist/wow.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/shuffle-text@0.3.0/build/shuffle-text.min.js"></script>
 
+    <!-- ローディングアニメ -->
     <script>
       $(window).on('load', function(){
         $(".loading-wrap").addClass('loading-anime');
       });
     </script>
 
+    <!-- タイピングアニメ -->
     <script>
       (function($) {
         var arr = [];
@@ -184,6 +218,7 @@
       })(jQuery);
     </script>
 
+    <!-- ナビゲーション開閉 -->
     <script>
       $('.navbar-nav li a').click(function () {
         $('.navbar-collapse').collapse('hide');
@@ -195,6 +230,7 @@
       });
     </script>
 
+    <!-- 星空バックグラウンド -->
     <script>
       "use strict";
       var canvasBg = document.getElementById('canvas'),
@@ -205,25 +241,28 @@
           stars = [],
           count = 0,
           maxStars = 1400;
+
       var canvas2 = document.createElement('canvas'),
           ctx2 = canvas2.getContext('2d');
-          canvas2.width = 100;
-          canvas2.height = 100;
+      canvas2.width = 100;
+      canvas2.height = 100;
       var half = canvas2.width/2,
           gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
-          gradient2.addColorStop(0.025, '#fff');
-          gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
-          gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
-          gradient2.addColorStop(1, 'transparent');
-          ctx2.fillStyle = gradient2;
-          ctx2.beginPath();
-          ctx2.arc(half, half, half, 0, Math.PI * 2);
-          ctx2.fill();
+      gradient2.addColorStop(0.025, '#fff');
+      gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+      gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+      gradient2.addColorStop(1, 'transparent');
+      ctx2.fillStyle = gradient2;
+      ctx2.beginPath();
+      ctx2.arc(half, half, half, 0, Math.PI * 2);
+      ctx2.fill();
+
       function random(min, max) {
         if (arguments.length < 2) { max = min; min = 0; }
         if (min > max) { var hold = max; max = min; min = hold; }
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
+
       var Star = function() {
         this.orbitRadius = random(w / 2 - 50);
         this.radius = random(100, this.orbitRadius) / 10;
@@ -235,6 +274,7 @@
         count++;
         stars[count] = this;
       };
+
       Star.prototype.draw = function() {
         var x = Math.sin(this.timePassed + 1) * this.orbitRadius + this.orbitX,
             y = Math.cos(this.timePassed) * this.orbitRadius/2 + this.orbitY,
@@ -245,12 +285,15 @@
         ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
         this.timePassed += this.speed;
       };
+
       for (var i = 0; i < maxStars; i++) { new Star(); }
+
       function animation() {
         ctx.globalCompositeOperation = 'source-over';
         ctx.globalAlpha = 0.8;
         ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
         ctx.fillRect(0, 0, w, h);
+
         ctx.globalCompositeOperation = 'lighter';
         for (var i = 1, l = stars.length; i < l; i++) { stars[i].draw(); }
         window.requestAnimationFrame(animation);
@@ -258,9 +301,11 @@
       animation();
     </script>
 
-    <!-- ========== Unity WebGL ローダー ========== -->
+    <!-- ================= Unity WebGL ローダー ================= -->
     <script>
       const unityCanvas = document.querySelector("#unity-canvas");
+
+      /* 表示サイズを画面幅に合わせて切り替え */
       function updateUnityCanvasSize() {
         const large = window.innerWidth >= 768;
         const cssSize = large ? 540 : 320;
@@ -270,6 +315,7 @@
       updateUnityCanvasSize();
       window.addEventListener("resize", updateUnityCanvasSize);
 
+      /* バナー表示 */
       function unityShowBanner(msg, type) {
         const warn = document.querySelector("#unity-warning");
         const div  = document.createElement("div");
@@ -279,6 +325,7 @@
         if (type !== "error") setTimeout(() => warn.removeChild(div), 5000);
       }
 
+      /* Unity 設定 */
       const buildUrl = "Build";
       const unityConfig = {
         dataUrl: buildUrl + "/WebGL.data",
@@ -291,8 +338,10 @@
         showBanner: unityShowBanner
       };
 
+      /* ローディングバー表示 */
       document.querySelector("#unity-loading-bar").style.display = "block";
 
+      /* Unity ローダー読み込み */
       const loaderScript = document.createElement("script");
       loaderScript.src = buildUrl + "/WebGL.loader.js";
       loaderScript.onload = () => {
@@ -304,6 +353,6 @@
       };
       document.body.appendChild(loaderScript);
     </script>
-    <!-- ========== /Unity WebGL ローダー ========== -->
+    <!-- ================= /Unity WebGL ローダー ================= -->
   </body>
 </html>
