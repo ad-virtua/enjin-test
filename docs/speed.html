@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  
+    Document Title
+    =============================================
+    -->
+    <title>通信速度測定 | 株式会社縁人</title>
+    <meta name="description" content="株式会社縁人通信速度測定ゲーム">
+    <!--  
+    Favicons
+    =============================================
+    -->
+    <link rel="apple-touch-icon" type="image/png" href="assets/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="assets/images/favicons/icon-192x192.png">
+    <!-- Default stylesheets-->
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <!-- Main stylesheet file-->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Unity template stylesheet (オプション) -->
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      /* Unity 埋め込み用の中央寄せなど */
+      #unity-container {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      #unity-canvas {
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <div class="loading-wrap"></div>
+
+    <main>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span><span class="menu_txt">MENU</span></button>
+            <h1 id="head_logo"><a class="navbar-brand logo_font" href="index.html"><img src="assets/images/logo.png" alt="株式会社縁人" /></a></h1>
+          </div>
+
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="dropdown-toggle" href="index.html">トップ</a></li>
+              <li><a class="dropdown-toggle" href="index.html#service">サービス一覧</a></li>
+              <li><a class="dropdown-toggle" href="company.html">会社概要</a></li>
+              <li><a class="dropdown-toggle" href="recruit.html">採用情報</a></li>
+              <li><a class="dropdown-toggle" href="index.html#contact">お問合せ</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--mainImg -->
+
+      <div class="main sub_page">
+        <section id="policy">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="sub_page_title">
+                <div class="container">
+                  <h2 class="js_typing">光回線通信速度測定<span>EnjinGame</span></h2>
+                </div>
+              </div>
+
+              <div class="container">
+                <div class="company_box col-sm-12">
+                  <p>EnjinGame 光回線の通信速度が計測可能です</p>
+
+                  <!-- ================= Unity WebGL 埋め込み開始 ================= -->
+                  <div id="unity-container" class="unity-desktop">
+                    <canvas id="unity-canvas" width="320" height="320" tabindex="-1"></canvas>
+
+                    <div id="unity-loading-bar" style="display:none">
+                      <div id="unity-logo"></div>
+                      <div id="unity-progress-bar-empty">
+                        <div id="unity-progress-bar-full"></div>
+                      </div>
+                    </div>
+
+                    <div id="unity-warning"></div>
+                    <div id="unity-footer"></div>
+                  </div>
+                  <!-- ================= Unity WebGL 埋め込み終了 ================= -->
+
+                  <p>ここにゲームが入るとありがたいです。</p>
+
+                  <dl>
+                    <dt>【EnjinGame注意事項】</dt>
+                    <dd>
+                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                      <p>通信速度はあくまで目安です。50Mのファイルを複数個ダウンロードし速度を測定します。</p>
+                    </dd>
+                    <dt>EnjinGameの不具合は</dt>
+                    <dd>
+                      <p>０３-６９１５-６５０６まで、お気軽にご連絡ください。</p>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="txt_caution">
+                  <p><a href="privacy.html">&gt;&nbsp;プライバシーポリシー</a><span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span>電気通信事業者届出番号 A-23-11925<span class="only_pc">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="only_sp"><br></span>お問合せ：03-6915-6506</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <p class="copyright font-alt">Copyright&nbsp;2023&nbsp;&copy;&nbsp;enjin.inc.&nbsp;all rights reserved.</p>
+              </div>
+            </div>
+          </div>
+          <canvas id="canvas"></canvas>
+        </footer>
+      </div>
+    </main>
+
+    <!--  
+    JavaScripts
+    =============================================
+    -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/shuffle-text@0.3.0/build/shuffle-text.min.js"></script>
+    <script type="text/javascript">
+      $(window).on('load', function(){
+        $(".loading-wrap").addClass('loading-anime');
+      });
+    </script>
+    <script type="text/javascript">
+      (function($) {
+        var arr = []
+        //初期値の設定
+        function TypingInit() {
+          $('.js_typing').each(function (i) { //js_typingクラスを全て処理をおこなう
+            arr[i] = new ShuffleText(this);//動作させるテキストを配列に格納
+          });
+        }
+        //スクロールした際のアニメーションの設定
+        function TypingAnime() {
+          $(".js_typing").each(function (i) {
+            var elemPos = $(this).offset().top - 30;//要素より、30px上の
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if (scroll >= elemPos - windowHeight) {
+              if(!$(this).hasClass("endAnime")){//endAnimeのクラスがあるかチェック
+                arr[i].start();//配列で登録テキストのアニメーションをおこなう
+                arr[i].duration = 2500;//テキストが最終変化するまでの時間※規定値600
+                $(this).addClass("endAnime");//１度アニメーションした場合はendAnimeクラスを追加
+              }
+            }else{
+              $(this).removeClass("endAnime"); //範囲外にスクロールした場合はendAnimeのクラスを削除
+            }
+          });
+        }
+
+        // 画面をスクロールをしたら動かしたい場合の記述
+        $(window).scroll(function () {
+          TypingAnime();/* アニメーション用の関数を呼ぶ*/
+        });// ここまで画面をスクロールをしたら動かしたい場合の記述
+
+        // 画面が読み込まれたらすぐに動かしたい場合の記述
+        $(window).on('load', function () {
+          TypingInit(); //初期設定
+          TypingAnime();/* アニメーション用の関数を呼ぶ*/
+        });// ここまで画面が読み込まれたらすぐに動かしたい場合の記述
+      })( jQuery );
+    </script>
+
+    <script type="text/javascript">
+      $('.navbar-nav li a').click(function () {
+        $('.navbar-collapse').collapse('hide');
+        $('.navbar-fixed-top .navbar-collapse').css('display','none');
+      });
+
+      $('.navbar-toggle').click(function () {
+        $('.navbar-toggle').collapse('show');
+        $('.navbar-fixed-top .navbar-collapse').css('display','block');
+      });
+    </script>
+
+    <script type="text/javascript">
+      "use strict";
+
+      var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        w = canvas.width = window.innerWidth,
+        h = canvas.height = window.innerHeight,
+
+        hue = 217,
+        stars = [],
+        count = 0,
+        maxStars = 1400;
+
+      // Thanks @jackrugile for the performance tip! https://codepen.io/jackrugile/pen/BjBGoM
+      // Cache gradient
+      var canvas2 = document.createElement('canvas'),
+          ctx2 = canvas2.getContext('2d');
+          canvas2.width = 100;
+          canvas2.height = 100;
+      var half = canvas2.width/2,
+          gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+          gradient2.addColorStop(0.025, '#fff');
+          gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+          gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+          gradient2.addColorStop(1, 'transparent');
+
+          ctx2.fillStyle = gradient2;
+          ctx2.beginPath();
+          ctx2.arc(half, half, half, 0, Math.PI * 2);
+          ctx2.fill();
+
+      // End cache
+
+      function random(min, max) {
+        if (arguments.length < 2) {
+          max = min;
+          min = 0;
+        }
+
+        if (min > max) {
+          var hold = max;
+          max = min;
+          min = hold;
+        }
+
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      var Star = function() {
+
+        this.orbitRadius = random(w / 2 - 50);
+        this.radius = random(100, this.orbitRadius) / 10;
+        this.orbitX = w / 2;
+        this.orbitY = h / 2;
+        this.timePassed = random(0, maxStars);
+        this.speed = random(this.orbitRadius) / 100000;
+        this.alpha = random(2, 10) / 10;
+
+        count++;
+        stars[count] = this;
+      }
+
+      Star.prototype.draw = function() {
+        var x = Math.sin(this.timePassed + 1) * this.orbitRadius + this.orbitX,
+            y = Math.cos(this.timePassed) * this.orbitRadius/2 + this.orbitY,
+            twinkle = random(10);
+
+        if (twinkle === 1 && this.alpha > 0) {
+          this.alpha -= 0.05;
+        } else if (twinkle === 2 && this.alpha < 1) {
+          this.alpha += 0.05;
+        }
+
+        ctx.globalAlpha = this.alpha;
+          ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+        this.timePassed += this.speed;
+      }
+
+      for (var i = 0; i < maxStars; i++) {
+        new Star();
+      }
+
+      function animation() {
+          ctx.globalCompositeOperation = 'source-over';
+          ctx.globalAlpha = 0.8;
+          ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
+          ctx.fillRect(0, 0, w, h)
+
+        ctx.globalCompositeOperation = 'lighter';
+        for (var i = 1, l = stars.length; i < l; i++) {
+          stars[i].draw();
+        };
+
+        window.requestAnimationFrame(animation);
+      }
+
+      animation();
+    </script>
+
+    <!-- ================= Unity ローダー ================= -->
+    <script>
+      // Canvas element
+      const unityCanvas = document.querySelector("#unity-canvas");
+
+      // Responsive sizing
+      function updateUnityCanvasSize() {
+        const large = window.innerWidth >= 768;
+        const cssSize = large ? 540 : 320;
+        unityCanvas.style.width  = cssSize + "px";
+        unityCanvas.style.height = cssSize + "px";
+      }
+      updateUnityCanvasSize();
+      window.addEventListener("resize", updateUnityCanvasSize);
+
+      // Banner handler
+      function unityShowBanner(msg, type) {
+        const warning = document.querySelector("#unity-warning");
+        const div = document.createElement("div");
+        div.innerHTML = msg;
+        div.style.cssText = "padding:10px; background:" + (type === "error" ? "red" : "yellow");
+        warning.appendChild(div);
+        if (type !== "error") {
+          setTimeout(() => warning.removeChild(div), 5000);
+        }
+      }
+
+      // Unity build settings
+      const buildUrl = "Build";
+      const unityConfig = {
+        dataUrl: buildUrl + "/WebGL.data",
+        frameworkUrl: buildUrl + "/WebGL.framework.js",
+        codeUrl: buildUrl + "/WebGL.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "WiFiPunchGame",
+        productVersion: "0.1.0",
+        showBanner: unityShowBanner
+      };
+
+      // Show loading bar
+      document.querySelector("#unity-loading-bar").style.display = "block";
+
+      // Load Unity loader script
+      const loaderScript = document.createElement("script");
+      loaderScript.src = buildUrl + "/WebGL.loader.js";
+      loaderScript.onload = () => {
+        createUnityInstance(unityCanvas, unityConfig, (progress) => {
+          document.querySelector("#unity-progress-bar-full").style.width = (progress * 100) + "%";
+        }).then(() => {
+          document.querySelector("#unity-loading-bar").style.display = "none";
+        }).catch(alert);
+      };
+      document.body.appendChild(loaderScript);
+    </script>
+    <!-- ================= /Unity ローダー ================= -->
+  </body>
+</html>
